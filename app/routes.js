@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 router.get("/health", (_req, res) => {
-  res.status().json({ message: "Connection Successful" });
+  res.status(200).json({ message: "connection success" });
 });
 
 module.exports = router;

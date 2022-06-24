@@ -1,14 +1,17 @@
-const notFoundHandler = (_req, _res, next) => {
-  const error = new Error("Page not found 😂");
+const notFoundHandler = (_req, _res, Next) => {
+  const error = new Error("404 Page not found.");
   error.status = 404;
-  next(error);
+  Next(error);
 };
 
 const errorHandler = (error, _req, res, _next) => {
   if (error.status) {
-    return res.status(error.status).json({ message: error.message });
+    res.status(error.status).json({ message: error.message });
   }
-  res.status(500).json({ message: "something went wrong" });
+  res.status(500).json({ message: "Something went wrong" });
 };
 
-module.exports = { notFoundHandler, errorHandler };
+module.exports = {
+  notFoundHandler,
+  errorHandler,
+};
